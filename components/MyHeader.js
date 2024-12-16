@@ -30,9 +30,15 @@ const MyHeader = ({ isEnabled, toggleSwitch }) => {
                 <View style={styles.dropdownMenu}>
                     <TouchableOpacity
                         style={styles.dropdownItem}
-                        onPress={() => navigation.navigate("SignIn")}
+                        onPress={() => navigation.navigate("BasicCalculator")}
                     >
-                        <Text style={styles.dropdownItemText}>Sign In</Text>
+                        <Text style={styles.dropdownItemText}>Basic Calculator</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.dropdownItem}
+                        onPress={() => navigation.navigate("ScientificCalculator")}
+                    >
+                        <Text style={styles.dropdownItemText}>Scientific Calculator</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => navigation.navigate("SavedCalculations")}
