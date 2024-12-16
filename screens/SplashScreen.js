@@ -13,7 +13,7 @@ const SplashScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Image source={require("../assets/bee.jpg")} style={styles.image} />
-            <Text style={styles.text}>Welcome to The BEES Calculator</Text>
+            <Text style={styles.text}>BEES Calculator</Text>
         </View>
     );
 };
