@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 
@@ -38,22 +39,22 @@ const BasicCalculator = ({ navigation, isDarkMode }) => {
             <View style={styles.buttonsContainer}>
                 {[
                     ["AC", clearAll, styles.acButton],
-                    ["(", () => handleInput("(")],
-                    [")", () => handleInput(")")],
-                    ["÷", () => handleInput("/")],
+                    ["(", () => handleInput("("), styles.operationButtons],
+                    [")", () => handleInput(")"), styles.operationButtons],
+                    ["÷", () => handleInput("/"), styles.operationButtons],
                     ["7", () => handleInput("7")],
                     ["8", () => handleInput("8")],
                     ["9", () => handleInput("9")],
-                    ["×", () => handleInput("*")],
+                    ["×", () => handleInput("*"), styles.operationButtons],
                     ["4", () => handleInput("4")],
                     ["5", () => handleInput("5")],
                     ["6", () => handleInput("6")],
-                    ["-", () => handleInput("-")],
+                    ["-", () => handleInput("-"), styles.operationButtons],
                     ["1", () => handleInput("1")],
                     ["2", () => handleInput("2")],
                     ["3", () => handleInput("3")],
-                    ["+", () => handleInput("+")],
-                    ["C", clearLast, styles.acButton],
+                    ["+", () => handleInput("+"), styles.operationButtons],
+                    ["DEL", clearLast, styles.acButton],
                     ["0", () => handleInput("0")],
                     [".", () => handleInput(".")],
                     ["=", calculate, styles.equalButton],
@@ -67,11 +68,6 @@ const BasicCalculator = ({ navigation, isDarkMode }) => {
                     </TouchableOpacity>
                 ))}
             </View>
-
-            {/* Navigation */}
-            <TouchableOpacity onPress={() => navigation.navigate("ScientificCalculator")}>
-                <Text style={styles.navigationLink}>Go to Scientific Calculator</Text>
-            </TouchableOpacity>
         </View>
     );
 };
@@ -84,29 +80,32 @@ const createStyles = (isDarkMode) =>
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: isDarkMode ? "#000" : "#fff",
-            paddingVertical: "100"
         },
         title: {
-            fontSize: 24,
+            fontSize: 30,
             fontWeight: "bold",
             color: isDarkMode ? "#fff" : "#000",
-            marginBottom: 20,
+            marginBottom: 35,
         },
         screen: {
             width: "90%",
             height: 50,
-            backgroundColor: isDarkMode ? "#333" : "#ccc",
-            color: isDarkMode ? "#fff" : "#000",
+            backgroundColor: isDarkMode ?"transparent" : "#ccc" ,
+            color: isDarkMode ? "#FFFFFF" : "#000",
             fontSize: 20,
             paddingHorizontal: 10,
             textAlign: "right",
             borderRadius: 8,
             marginBottom: 10,
+            borderWidth: isDarkMode ? 3 : 3,
+            borderColor: isDarkMode ? "#FFFFFF" : "#000000",
         },
         result: {
-            fontSize: 18,
-            color: isDarkMode ? "#fff" : "#000",
+            fontSize: 22,
+            color: isDarkMode ? "#FFFFFF" : "#000000",
             marginBottom: 20,
+            fontWeight: "bold",
+            padding: 20
         },
         buttonsContainer: {
             width: "100%",
@@ -119,24 +118,33 @@ const createStyles = (isDarkMode) =>
             height: 60,
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: isDarkMode ? "#444" : "#ddd",
             margin: 5,
             borderRadius: 8,
+            borderWidth: isDarkMode ? 3 : 3,
+            borderColor: isDarkMode ? "#FFFFFF" : "#000000",
+            backgroundColor: isDarkMode ? "#6082B6" : "transparent"
         },
         buttonText: {
             color: isDarkMode ? "#fff" : "#000",
-            fontSize: 18,
+            fontSize: 22,
+            fontWeight: "bold",
         },
         acButton: {
-            backgroundColor: isDarkMode ? "#f00" : "#fcc",
+            backgroundColor: "#ff6500",
         },
         equalButton: {
-            backgroundColor: isDarkMode ? "#0f0" : "#cfc",
+            backgroundColor: "#B2BEB5",
+        },
+        numberButton: {
+            backgroundColor: isDarkMode ? "#1e3e62" : "#fff",
         },
         navigationLink: {
-            color: isDarkMode ? "#00f" : "#0077ff",
+            color: isDarkMode ? "#f2b949" : "#0077ff",
             marginTop: 20,
             fontSize: 16,
+        },
+        operationButtons: {
+            backgroundColor: "#B2BEB5",
         },
     });
 
